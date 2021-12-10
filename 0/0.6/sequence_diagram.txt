@@ -1,0 +1,14 @@
+note over browser:
+If save button gets clicked browser
+adds note and redraws all notes 
+before sending POST request
+to server with new note
+end note
+
+note over browser:
+If save button gets clicked browser
+executes sendToServer() in spa.js
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+server-->browser: {"message":"note created"}

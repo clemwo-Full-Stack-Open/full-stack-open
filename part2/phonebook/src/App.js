@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Header from "./components/Header"
 import Filter from "./components/Filter"
 import AddPersonForm from "./components/AddPersonForm"
 import Numbers from "./components/Numbers"
+import axios from 'axios'
 
 
 
@@ -51,6 +52,18 @@ const App = () => {
         // add new person to phonebook
         setPersons(persons.concat({name: newName, number: newNumber}))
     }
+
+    const hook = () => {
+        console.log('effect')
+        axios
+            .get('http://localhost:3001/persons')
+            .then(response => {
+                console.log('promise fulfilled')
+                setPersons(response.data)
+            })
+    }
+
+    useEffect(hook, [])
 
     return (
         <div>

@@ -1,13 +1,18 @@
 import React from 'react'
 import Person from './Person'
 
-const Numbers = ({persons, nameFilter}) => {
+const Numbers = ({persons, nameFilter, removePerson}) => {
     return (
         <ul>
             {persons
                 .filter(person => person.name.toLowerCase().includes(nameFilter.toLowerCase()))
-                .map(person =>
-                    <Person key={person.name} name={person.name} number={person.number}/>
+                .map(person => {
+                        return (
+                            <li key={person.id}>
+                                <Person person={person} removePerson={removePerson}/>
+                            </li>
+                        )
+                    }
                 )}
         </ul>
     )

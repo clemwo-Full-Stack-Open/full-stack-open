@@ -29,8 +29,8 @@ const App = () => {
     const sortPersons = persons => {
         const sortedPersons =
             persons.sort((personA, personB) => {
-            if (personA.name < personB.name) return -1
-            if (personA.name > personB.name) return 1
+            if (personA.name.toLowerCase() < personB.name.toLowerCase()) return -1
+            if (personA.name.toLowerCase() > personB.name.toLowerCase()) return 1
             return 0
         })
         return sortedPersons
@@ -87,7 +87,7 @@ const App = () => {
     const hook = () => {
         personService
             .getAll().then(response => {
-            setPersons(response)
+            setPersons(sortPersons(response))
         })
     }
 

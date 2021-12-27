@@ -29,6 +29,21 @@
       "name": "zzz",
       "number": "23556",
       "id": 6
+    },
+    {
+      "name": "Peter hansen",
+      "number": "234556",
+      "id": 7
+    },
+    {
+      "name": "Hitler",
+      "number": "88420",
+      "id": 8
+    },
+    {
+      "name": "Stalin",
+      "number": "23457544",
+      "id": 9
     }
   ]
 }

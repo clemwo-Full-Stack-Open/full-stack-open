@@ -3,7 +3,8 @@ import Header from "./components/Header"
 import Filter from "./components/Filter"
 import AddPersonForm from "./components/AddPersonForm"
 import Numbers from "./components/Numbers"
-import personService from "./personService";
+import personService from "./personService"
+import './index.css'
 
 
 const App = () => {

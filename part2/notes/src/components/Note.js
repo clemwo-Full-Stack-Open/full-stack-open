@@ -1,7 +1,7 @@
 const Note = ({note}) => {
     return (
         <div>
-            <p>{note.content}</p>
+            {note.content} <button>Toggle importance</button>
         </div>
     )
 }

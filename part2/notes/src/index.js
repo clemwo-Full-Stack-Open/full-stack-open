@@ -1,4 +1,5 @@
 import ReactDOM from 'react-dom'
+<<<<<<< HEAD
 import App from './App.js'
 
 const notes = [
@@ -26,3 +27,12 @@ ReactDOM.render(
   <App notes={notes} />,
   document.getElementById('root')
 )
+=======
+import App from './App'
+import axios from 'axios'
+
+ReactDOM.render(
+    <App/>,
+    document.getElementById('root')
+)
+>>>>>>> f82399c7c73c153522081792be1a1ed15d576fec

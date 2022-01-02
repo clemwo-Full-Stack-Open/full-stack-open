@@ -1,5 +1,5 @@
 {
-  "name": "lecture_node",
+  "name": "notes-backend",
   "version": "0.0.1",
   "description": "\"example application for node and express\"",
   "main": "index.js",

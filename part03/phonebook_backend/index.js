@@ -7,7 +7,7 @@ app.use(express.json())
 morgan.token('body', (req, res) => JSON.stringify(req.body))
 
 
-app.use(morgan(function (tokens, req, res) {
+app.use(morgan((tokens, req, res) => {
     // if request is POST then log body
     if (req.method === 'POST') {
         return [

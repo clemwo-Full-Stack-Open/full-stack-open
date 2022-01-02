@@ -1,8 +1,34 @@
 const express = require('express')
-const {request, response} = require("express");
+const morgan = require('morgan')
 const app = express()
 
 app.use(express.json())
+// create morgan token to log content body for logging POST body
+morgan.token('body', (req, res) => JSON.stringify(req.body))
+
+
+app.use(morgan(function (tokens, req, res) {
+    // if request is POST then log body
+    if (req.method === 'POST') {
+        return [
+            tokens.method(req, res),
+            tokens.url(req, res),
+            tokens.status(req, res),
+            tokens.res(req, res, 'content-length'), '-',
+            tokens['response-time'](req, res), 'ms',
+            tokens['body'](req, res)
+        ].join(' ')
+    // else log tiny
+    } else {
+        return [
+            tokens.method(req, res),
+            tokens.url(req, res),
+            tokens.status(req, res),
+            tokens.res(req, res, 'content-length'), '-',
+            tokens['response-time'](req, res), 'ms'
+        ].join(' ')
+    }
+}))
 
 let persons = [
     {
@@ -63,6 +89,7 @@ app.delete('/api/persons/:id', (request, response) => {
         response.status(404).end()
     }
 })
+
 
 app.post('/api/persons/', (request, response) => {
     const body = request.body
